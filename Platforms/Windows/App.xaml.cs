@@ -1,4 +1,11 @@
 ﻿using Microsoft.UI.Xaml;
+using System;
+using SQLite;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using DragosDariaLab7.Models;
+using DragosDariaLab7.Data;
+using System.IO;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
