@@ -17,12 +17,11 @@ public partial class ShopPage : ContentPage
     async void OnShowMapButtonClicked(object sender, EventArgs e)
     {
         var shop = (Shop)BindingContext; 
-		var address = shop.Adress; 
-		var locations = await Geocoding.GetLocationsAsync(address); 
+		var address = shop.Adress;  
 		var options = new MapLaunchOptions { Name = "Magazinul meu preferat" };
-        var shoplocation = locations?.FirstOrDefault();
+        var shopLocation = new Location(46.7492379, 23.5745597);
         var myLocation = new Location(46.7731796289, 23.6213886738);
-        var distance = myLocation.CalculateDistance(location, DistanceUnits.Kilometers);
+        var distance = myLocation.CalculateDistance(shopLocation, DistanceUnits.Kilometers);
 
         if (distance < 5) 
 		{ 
@@ -37,6 +36,6 @@ public partial class ShopPage : ContentPage
 			}; 
 			LocalNotificationCenter.Current.Show(request); 
 		}
-        await Map.OpenAsync(shoplocation, options);
+        await Map.OpenAsync(shopLocation, options);
     }
 }
